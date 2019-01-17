@@ -1,19 +1,9 @@
-/**
- * Copyright (C), 2015-2019, 章鱼云商
- * FileName: ImplementStrStr
- * Author:   wanghuailong
- * Date:     2019/1/17 11:19
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.lintcode.easy.problem13;
 
 /**
  * 〈〉
  *
- * @author wanghuailong
+ * @author whl
  * @create 2019/1/17
  * @since 1.0.0
  */
