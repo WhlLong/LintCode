@@ -12,7 +12,7 @@ public class UglyNumber {
 
     public static void main(String[] args) {
         UglyNumber uglyNumber = new UglyNumber();
-        int result = uglyNumber.nthUglyNumber(9);
+        int result = uglyNumber.nthUglyNumber(1665);
         System.out.println(result);
 
     }
@@ -42,12 +42,22 @@ public class UglyNumber {
 
 
     private boolean isUgly(int num) {
-        if (num <= 0) return false;
-        if (num == 1) return true;
+        if (num <= 0) {
+            return false;
+        }
+        if (num == 1) {
+            return true;
+        }
 
-        while (num >= 2 && num % 2 == 0) num /= 2;
-        while (num >= 3 && num % 3 == 0) num /= 3;
-        while (num >= 5 && num % 5 == 0) num /= 5;
+        while (num >= 2 && num % 2 == 0) {
+            num /= 2;
+        }
+        while (num >= 3 && num % 3 == 0) {
+            num /= 3;
+        }
+        while (num >= 5 && num % 5 == 0) {
+            num /= 5;
+        }
 
         return num == 1;
     }
@@ -58,20 +68,40 @@ public class UglyNumber {
      * 思路:
      * 所有的丑数都可以通过它前面的某个丑数乘以2或乘以3或乘以5得到
      * 比如1是丑数 那么1*2  1*3  1*5必定也是丑数
-     *
      */
     public int nthUglyNumber(int n) {
+        int x = 0;
+        int y = 0;
+        int z = 0;
 
-        int[] uglyNum = new int[n];
-        int index = 0;
-        int totalIndex = 0;
-        uglyNum[0] = 1;
-        while (index <= uglyNum.length) {
-          
+        int counts = 1;
+        int[] items = new int[n];
+        items[0] = 1;
 
-            index++;
+        while (counts < items.length) {
+
+            int min = min(items[x] * 2, items[y] * 3, items[z] * 5);
+            if (min == items[x] * 2) {
+                x++;
+            }
+            if (min == items[y] * 3) {
+                y++;
+            }
+            if (min == items[z] * 5) {
+                z++;
+            }
+
+            items[counts] = min;
+            counts++;
         }
 
-        return 0;
+
+
+        return items[counts-1];
+    }
+
+    private int min(int i, int j, int k) {
+        int min = Math.min(i, j);
+        return Math.min(min, k);
     }
 }
