@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 〈Recover Rotated Sorted Array〉
- *  本质上就是一个排序
+ *
  * @author whl
  * @create 2019/1/21
  * @since 1.0.0
